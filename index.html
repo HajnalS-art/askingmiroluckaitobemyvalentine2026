@@ -296,29 +296,32 @@
     const subtextEl = document.getElementById("subtext");
     const choicesEl = document.getElementById("choices");
 
-   function render(step){
+   function render(step) {
   const s = STORY[step];
-  signText.textContent = s.sign;
-  subtext.textContent = s.text;
-  choices.innerHTML = "";
 
-  // ONE button → centered green
+  // Update the text under the title
+  subtextEl.textContent = s.text || "";
+
+  // Clear old buttons
+  choicesEl.innerHTML = "";
+
+  // If there is ONLY 1 button -> centered green
   if (s.choices.length === 1) {
     const b = document.createElement("button");
-    b.className = "single";
+    b.className = "choice single";
     b.textContent = s.choices[0].label;
     b.onclick = () => render(s.choices[0].next);
-    choices.appendChild(b);
+    choicesEl.appendChild(b);
     return;
   }
 
-  // TWO buttons → left green, right pink
+  // If there are 2 buttons -> left green, right pink
   s.choices.forEach((c, i) => {
     const b = document.createElement("button");
-    b.className = i === 0 ? "left" : "right";
+    b.className = "choice " + (i === 0 ? "leftBtn" : "rightBtn");
     b.textContent = c.label;
     b.onclick = () => render(c.next);
-    choices.appendChild(b);
+    choicesEl.appendChild(b);
   });
 }
 
