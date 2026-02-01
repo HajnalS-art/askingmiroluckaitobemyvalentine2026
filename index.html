@@ -239,7 +239,7 @@
         text: "...",
         choices: [
           { label: "okay 😅", next: "yes2_1" },
-          { label: "daj mi ešte chvíľu 🤔🤔🤔", next: "yes3_5" }
+          { label: "daj mi ešte chvíľku 🤔🤔🤔", next: "yes3_5" }
         ]
       },
 
@@ -262,17 +262,49 @@
       no1_1: {
         text: "Och, to som rada 🥰, takže ?",
         choices: [
-          { label: "čo dear 😊? ", next: "no1_3" },
+          { label: "čo dear 😊? ", next: "no1_1_1" },
+        ]
+      },
+
+      no1_1_1: {
+        text: "-_- Miro ⬆️⬆️⬆️",
+        choices: [
+          { label: "áno :3", next: "endYes" },
+          { label: "musím porozmýšľať 🤔", next: "yes3_3" }
         ]
       },
       
       no1_2: {
         text: "V dnešnej dobe s AI vieš fakt všetko spraviť",
         choices: [
-          { label: "haha fest dobré 😅 ", next: "no1_3" }
+          { label: "haha fest dobré 😅 ", next: "no1_2_1" }
         ]
       },
-    
+
+      no1_2_1: {
+        text: "Dobre, ale teraz sa tu o inom bavíme ...",
+        choices: [
+          { label: "o čom?", next: "no1_2_2" },
+          { label: "a nechceš sa baviť o niečom inom ?😅", next: "no1_2_3" }
+        ]
+      },
+
+      no1_2_2: {
+        text: "⬆️⬆️⬆️",
+        choices: [
+          { label: "áno :3", next: "endYes" },
+          { label: "musím porozmýšľať 🤔", next: "yes3_3" }
+        ]
+      },
+
+     no1_2_1: {
+        text: "kľudne, keď toto dokončiš 😇",
+        choices: [
+          { label: "okay :c", next: "yes3_1" },
+          { label: "a musím ? 🙈", next: "yes2_2_4" }
+        ]
+      },
+      
       endYes: {
         text: "It’s a date 💘 Put your final message here.",
         choices: [
