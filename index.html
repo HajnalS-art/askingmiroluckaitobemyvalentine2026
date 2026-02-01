@@ -94,6 +94,14 @@
       color: #2e1a25;
     }
 
+    /* single centered green button */
+    button.single{
+      background: var(--green-1);
+      color: white;
+      margin: 0 auto;
+      display: block;
+    }
+    
     footer{
       margin-top: 18px;
       font-size: 13px;
@@ -244,13 +252,29 @@
       },
       
       no1: {
-        text: "Oh no 😭 Write your reaction here.",
+        text: "C´mon you like it, nie že nie",
         choices: [
-          { label: "Still no 🙈", next: "endNo" },
-          { label: "Okay yes 😳", next: "yes1" }
+          { label: "joo, je to sweet 🥰", next: "no1_1" },
+          { label: "ako si to vôbec spravila? 😅", next: "no1_2" }
         ]
       },
 
+      no1_1: {
+        text: "Och, to som rada 🥰, takže ?",
+        choices: [
+          { label: "čo dear 😊? ", next: "no1_3" },
+          { label: "  ", next: "no1_3" }
+        ]
+      },
+      
+      no1_2: {
+        text: "V dnešnej dobe s AI vieš fakt všetko spraviť",
+        choices: [
+          { label: "holčina šikovná 🥰", next: "no1_3" },
+          { label: "haha fest dobré 😅 ", next: "no1_3" }
+        ]
+      },
+    
       endYes: {
         text: "It’s a date 💘 Put your final message here.",
         choices: [
@@ -272,19 +296,31 @@
     const subtextEl = document.getElementById("subtext");
     const choicesEl = document.getElementById("choices");
 
-    function render(step){
-      const node = STORY[step];
-      subtextEl.textContent = node.text || "";
-      choicesEl.innerHTML = "";
+   function render(step){
+  const s = STORY[step];
+  signText.textContent = s.sign;
+  subtext.textContent = s.text;
+  choices.innerHTML = "";
 
-      node.choices.forEach((c, i) => {
-        const btn = document.createElement("button");
-        btn.className = "choice " + (i === 0 ? "leftBtn" : "rightBtn");
-        btn.textContent = c.label;
-        btn.onclick = () => render(c.next);
-        choicesEl.appendChild(btn);
-      });
-    }
+  // ONE button → centered green
+  if (s.choices.length === 1) {
+    const b = document.createElement("button");
+    b.className = "single";
+    b.textContent = s.choices[0].label;
+    b.onclick = () => render(s.choices[0].next);
+    choices.appendChild(b);
+    return;
+  }
+
+  // TWO buttons → left green, right pink
+  s.choices.forEach((c, i) => {
+    const b = document.createElement("button");
+    b.className = i === 0 ? "left" : "right";
+    b.textContent = c.label;
+    b.onclick = () => render(c.next);
+    choices.appendChild(b);
+  });
+}
 
     render("start");
   </script>
