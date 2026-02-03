@@ -176,8 +176,8 @@
        yes2_1_1: {
         text: "NIE 😊 takže ⬆️⬆️⬆️",
         choices: [
-          { label: "yes :3", next: "endYes" },
-          { label: "yes 😅", next: "endYes" }
+          { label: "yes :3", next: "endYes3" },
+          { label: "yes 😅", next: "endYes2" }
         ]
       },
 
@@ -285,10 +285,31 @@
   yes3_1_3: {
         text: "MIROSLAV ! ",
         choices: [
-          { label: "yes I will be your Valentine 🥰", next: "endYes" }
+          { label: "yes I will be your Valentine 🥰", next: "endYes1" }
         ]
       },
 
+  endYes2: {
+        text: "-.- máš jediné šťastie, že si taký kjut. Takže jupíjupí, can´t wait to see you again handsome ✨ ",
+        choices: [
+          { label: "find another end", next: "start" }
+        ]
+      },
+
+  endYes1: {
+        text: "No huráá. Teškám sa ... a som si uvedomila, že tu nič dirty nebolo - I'd love to put a Trojan on your hard drive. 😩💦",
+        choices: [
+          { label: "find another end", next: "start" }
+        ]
+      },
+
+      endYes1: {
+        text: "Oh my, you’re so cute. Don’t you want to be my boyfriend? Oh wait, you already are and now you’re my Valentine as well. Lucky me. 🥰 ",
+        choices: [
+          { label: "find another end", next: "start" }
+        ]
+      },
+      
        yes3_2: {
         text: "Pekne prosím?",
         choices: [
@@ -407,16 +428,14 @@
       endYes: {
         text: "Jupí jupíí tak sa teším na náš prvý valentín 🥰",
         choices: [
-          { label: "Restart 🔁", next: "start" },
-          { label: "Screenshot 📸", next: "start" }
+          { label: "find another end", next: "start" },
         ]
       },
 
       endNo: {
-        text: "Cringe Miro, takto ľahké to nemôže byť. Skús to ešte raz",
+        text: "Cringe Miro, takto ľahké to nemôže byť. Skús to ešte raz.",
         choices: [
-          { label: "Restart 🔁", next: "start" },
-          { label: "Fine yes 😳", next: "yes1" }
+          { label: "find another end", next: "start" },
         ]
       }
     };
